@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const navLinks = [
   { name: "Services", href: "#services" },
@@ -52,6 +53,7 @@ export function Navigation() {
               <Phone className="w-4 h-4" />
               <span>1-800-CARE</span>
             </a>
+            <ThemeToggle />
             <Button variant="hero" size="default">
               Get Started
             </Button>
@@ -88,10 +90,13 @@ export function Navigation() {
                   </a>
                 ))}
                 <hr className="border-border" />
-                <a href="tel:+18001234567" className="flex items-center gap-2 text-primary font-semibold py-2">
-                  <Phone className="w-4 h-4" />
-                  <span>1-800-CARE</span>
-                </a>
+                <div className="flex items-center justify-between py-2">
+                  <a href="tel:+18001234567" className="flex items-center gap-2 text-primary font-semibold">
+                    <Phone className="w-4 h-4" />
+                    <span>1-800-CARE</span>
+                  </a>
+                  <ThemeToggle />
+                </div>
                 <Button variant="hero" size="lg" className="w-full">
                   Get Started
                 </Button>
