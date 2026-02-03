@@ -7,7 +7,12 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: {
+        DEFAULT: "1rem",
+        sm: "1.25rem",
+        lg: "1.5rem",
+        xl: "2rem",
+      },
       screens: {
         "2xl": "1400px",
       },
@@ -72,14 +77,14 @@ export default {
           800: "hsl(174 75% 16%)",
           900: "hsl(174 80% 10%)",
         },
-        coral: {
-          50: "hsl(15 85% 95%)",
-          100: "hsl(15 85% 90%)",
-          200: "hsl(15 85% 80%)",
-          300: "hsl(15 85% 70%)",
-          400: "hsl(15 85% 60%)",
-          500: "hsl(15 85% 57%)",
-          600: "hsl(15 85% 45%)",
+        gold: {
+          50: "hsl(43 96% 97%)",
+          100: "hsl(43 96% 92%)",
+          200: "hsl(43 96% 82%)",
+          300: "hsl(43 96% 70%)",
+          400: "hsl(43 96% 58%)",
+          500: "hsl(43 96% 56%)",
+          600: "hsl(43 95% 48%)",
         },
       },
       borderRadius: {
@@ -119,9 +124,9 @@ export default {
         "scale-in": "scale-in 0.4s ease-out forwards",
       },
       boxShadow: {
-        glass: "0 8px 32px hsl(215 25% 17% / 0.08)",
-        "glass-lg": "0 20px 40px hsl(215 25% 17% / 0.12)",
-        glow: "0 0 40px hsl(174 62% 35% / 0.3)",
+        glass: "0 8px 32px hsl(174 25% 18% / 0.08)",
+        "glass-lg": "0 20px 40px hsl(174 25% 18% / 0.12)",
+        glow: "0 0 40px hsl(174 62% 38% / 0.3)",
       },
     },
   },

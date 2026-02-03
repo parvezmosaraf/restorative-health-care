@@ -26,12 +26,9 @@ const steps = [
 ];
 
 const careTypes = [
-  { id: "nursing", label: "Skilled Nursing", icon: "💉" },
-  { id: "physical", label: "Physical Therapy", icon: "🏃" },
-  { id: "occupational", label: "Occupational Therapy", icon: "🧠" },
-  { id: "pediatric", label: "Pediatric Care", icon: "👶" },
-  { id: "geriatric", label: "Geriatric Care", icon: "👴" },
-  { id: "disease", label: "Disease Management", icon: "❤️" },
+  { id: "adult-geriatric", label: "Adult/Geriatric Services", icon: "👴" },
+  { id: "pediatric", label: "Pediatric Services", icon: "👶" },
+  { id: "disease-management", label: "Disease Management Program", icon: "❤️" },
 ];
 
 export function IntakeForm() {
@@ -72,7 +69,7 @@ export function IntakeForm() {
   };
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden">
+    <section id="contact" className="py-16 sm:py-24 relative overflow-hidden">
       {/* Background */}
       <div className="orb orb-primary w-[600px] h-[600px] top-0 right-0 opacity-20" />
       <div className="orb orb-accent w-[400px] h-[400px] bottom-0 left-0 opacity-15" />

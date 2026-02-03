@@ -7,109 +7,110 @@
 @layer base {
   :root {
     /* Warm White Background */
-    --background: 40 33% 98%;
-    --foreground: 215 25% 17%;
+    --background: 48 25% 98%;
+    --foreground: 174 25% 18%;
 
     /* Card with Glass Effect Base */
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 17%;
+    --card-foreground: 174 25% 18%;
 
     /* Popover */
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 17%;
+    --popover-foreground: 174 25% 18%;
 
-    /* Primary - Soft Teal */
-    --primary: 174 62% 35%;
+    /* Primary - Logo Teal (cross) */
+    --primary: 174 62% 38%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Slate Blue */
-    --secondary: 215 20% 95%;
-    --secondary-foreground: 215 25% 27%;
+    /* Secondary - Soft Teal Tint */
+    --secondary: 174 30% 95%;
+    --secondary-foreground: 174 40% 25%;
 
     /* Muted */
-    --muted: 210 20% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 174 20% 96%;
+    --muted-foreground: 174 25% 45%;
 
-    /* Accent - Coral Warmth */
-    --accent: 15 85% 57%;
-    --accent-foreground: 0 0% 100%;
+    /* Accent - Logo Gold (leaf/wing) */
+    --accent: 43 96% 56%;
+    --accent-foreground: 43 50% 15%;
 
     /* Destructive */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
     /* Borders & Inputs */
-    --border: 214 20% 90%;
-    --input: 214 20% 90%;
-    --ring: 174 62% 35%;
+    --border: 174 20% 90%;
+    --input: 174 20% 90%;
+    --ring: 174 62% 38%;
 
     --radius: 1rem;
 
-    /* Custom Design Tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(174 62% 35%), hsl(190 60% 45%));
-    --gradient-accent: linear-gradient(135deg, hsl(15 85% 57%), hsl(25 90% 60%));
-    --gradient-hero: linear-gradient(135deg, hsl(174 40% 95%), hsl(215 30% 97%), hsl(40 33% 98%));
-    --gradient-orb-1: radial-gradient(circle, hsl(174 62% 35% / 0.3), transparent 70%);
-    --gradient-orb-2: radial-gradient(circle, hsl(15 85% 57% / 0.2), transparent 70%);
+    /* Custom Design Tokens - Logo Teal & Gold */
+    --gradient-primary: linear-gradient(135deg, hsl(174 62% 38%), hsl(190 55% 48%));
+    --gradient-accent: linear-gradient(135deg, hsl(43 96% 56%), hsl(38 95% 52%));
+    --gradient-hero: linear-gradient(135deg, hsl(174 40% 97%), hsl(43 40% 97%), hsl(40 33% 98%));
+    --gradient-orb-1: radial-gradient(circle, hsl(174 62% 38% / 0.25), transparent 70%);
+    --gradient-orb-2: radial-gradient(circle, hsl(43 96% 56% / 0.2), transparent 70%);
     
     /* Glass Effects */
     --glass-bg: hsl(0 0% 100% / 0.7);
     --glass-border: hsl(0 0% 100% / 0.5);
-    --glass-shadow: 0 8px 32px hsl(215 25% 17% / 0.08);
+    --glass-shadow: 0 8px 32px hsl(174 25% 18% / 0.08);
     --glass-blur: blur(16px);
 
     /* Sidebar */
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 215 25% 27%;
-    --sidebar-primary: 174 62% 35%;
+    --sidebar-foreground: 174 25% 27%;
+    --sidebar-primary: 174 62% 38%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 215 20% 95%;
-    --sidebar-accent-foreground: 215 25% 27%;
-    --sidebar-border: 214 20% 90%;
-    --sidebar-ring: 174 62% 35%;
+    --sidebar-accent: 174 30% 95%;
+    --sidebar-accent-foreground: 174 25% 27%;
+    --sidebar-border: 174 20% 90%;
+    --sidebar-ring: 174 62% 38%;
   }
 
   .dark {
-    --background: 215 25% 9%;
-    --foreground: 210 20% 96%;
+    --background: 174 30% 8%;
+    --foreground: 174 15% 96%;
 
-    --card: 215 25% 12%;
-    --card-foreground: 210 20% 96%;
+    --card: 174 25% 12%;
+    --card-foreground: 174 15% 96%;
 
-    --popover: 215 25% 12%;
-    --popover-foreground: 210 20% 96%;
+    --popover: 174 25% 12%;
+    --popover-foreground: 174 15% 96%;
 
-    --primary: 174 62% 45%;
-    --primary-foreground: 215 25% 9%;
+    --primary: 174 62% 48%;
+    --primary-foreground: 174 50% 8%;
 
-    --secondary: 215 20% 18%;
-    --secondary-foreground: 210 20% 96%;
+    --secondary: 174 20% 18%;
+    --secondary-foreground: 174 15% 96%;
 
-    --muted: 215 20% 18%;
-    --muted-foreground: 215 16% 60%;
+    --muted: 174 20% 18%;
+    --muted-foreground: 174 16% 62%;
 
-    --accent: 15 85% 57%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 43 96% 58%;
+    --accent-foreground: 43 50% 12%;
 
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 215 20% 22%;
-    --input: 215 20% 22%;
-    --ring: 174 62% 45%;
+    --border: 174 20% 22%;
+    --input: 174 20% 22%;
+    --ring: 174 62% 48%;
 
-    --glass-bg: hsl(215 25% 12% / 0.8);
-    --glass-border: hsl(215 25% 20% / 0.5);
-    --glass-shadow: 0 8px 32px hsl(0 0% 0% / 0.3);
+    /* Lighter navbar/surface so logo and menu text are visible */
+    --glass-bg: hsl(174 22% 24% / 0.95);
+    --glass-border: hsl(174 20% 32% / 0.6);
+    --glass-shadow: 0 8px 32px hsl(0 0% 0% / 0.25);
 
-    --sidebar-background: 215 25% 9%;
-    --sidebar-foreground: 210 20% 96%;
-    --sidebar-primary: 174 62% 45%;
-    --sidebar-primary-foreground: 215 25% 9%;
-    --sidebar-accent: 215 20% 18%;
-    --sidebar-accent-foreground: 210 20% 96%;
-    --sidebar-border: 215 20% 22%;
-    --sidebar-ring: 174 62% 45%;
+    --sidebar-background: 174 30% 8%;
+    --sidebar-foreground: 174 15% 96%;
+    --sidebar-primary: 174 62% 48%;
+    --sidebar-primary-foreground: 174 50% 8%;
+    --sidebar-accent: 174 20% 18%;
+    --sidebar-accent-foreground: 174 15% 96%;
+    --sidebar-border: 174 20% 22%;
+    --sidebar-ring: 174 62% 48%;
   }
 }
 
@@ -118,13 +119,16 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "cv11", "ss01";
-  }
-
-  html {
-    scroll-behavior: smooth;
+    overflow-x: hidden;
+    min-width: 0;
   }
 }
 
@@ -204,19 +208,47 @@
 
   /* Service Card Hover */
   .service-card {
-    @apply glass-card rounded-2xl p-6 transition-all duration-300;
+    @apply glass-card rounded-2xl p-6 transition-all duration-300 overflow-visible;
   }
 
   .service-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 20px 40px hsl(215 25% 17% / 0.12);
+    box-shadow: 0 20px 40px hsl(174 25% 18% / 0.12);
   }
 
-  /* Bento Grid */
+  /* Services grid: 3 equal cards in a single row on desktop */
+  .services-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 640px) {
+    .services-grid {
+      gap: 1.5rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 1fr;
+    }
+  }
+
+  /* Bento Grid (for other uses) */
   .bento-grid {
     display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 640px) {
+    .bento-grid {
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
   }
 
   @media (min-width: 1024px) {

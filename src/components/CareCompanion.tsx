@@ -37,7 +37,7 @@ export function CareCompanion() {
       setMessages((prev) => [
         ...prev,
         {
-          text: "Thanks for reaching out! Our care specialists are available 24/7. For immediate assistance, call 1-800-CARE or use the contact form above. Is there anything specific I can help you find?",
+          text: "Thanks for reaching out! Our care specialists are available 24/7. For immediate assistance, call (210) 737-8090 or use the contact form above. Is there anything specific I can help you find?",
           isBot: true,
         },
       ]);
@@ -54,9 +54,9 @@ export function CareCompanion() {
       if (action.includes("service")) {
         response = "We offer Skilled Nursing, Physical Therapy, Occupational Therapy, Pediatric Care, Geriatric Care, and Disease Management. Which service interests you?";
       } else if (action.includes("Refer")) {
-        response = "To refer a patient, you can use our intake form above, or call our referral line at 1-800-CARE. Our team will guide you through the process!";
+        response = "To refer a patient, you can use our intake form above, or call our referral line at (210) 737-8090. Our team will guide you through the process!";
       } else {
-        response = "You can reach us 24/7 at 1-800-CARE, or fill out the contact form above. We typically respond within 1 hour during business hours!";
+        response = "You can reach us 24/7 at (210) 737-8090, or email support@restorativehealth.com. We typically respond within 1 hour during business hours!";
       }
       setMessages((prev) => [...prev, { text: response, isBot: true }]);
     }, 1000);

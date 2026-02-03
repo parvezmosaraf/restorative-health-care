@@ -1,172 +1,148 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Check } from "lucide-react";
+import { MapPin, Phone, Printer } from "lucide-react";
 
-const serviceAreas = [
-  "San Antonio",
-  "Austin",
-  "New Braunfels",
-  "Seguin",
-  "San Marcos",
-  "Kyle",
-  "Buda",
-  "Lockhart",
-  "Gonzales",
-  "Luling",
-  "La Vernia",
-  "Floresville",
+const locations = [
+  {
+    id: "san-antonio",
+    name: "San Antonio",
+    address: "8600 Wurzbach Rd, Building 700",
+    cityStateZip: "San Antonio, TX 78240",
+    phone: "(210) 737-8090",
+    fax: "(866) 653-2907",
+    mapQuery: "8600 Wurzbach Rd, San Antonio, TX 78240",
+  },
+  {
+    id: "mcallen",
+    name: "McAllen",
+    address: "2522 Buddy Owens Ave.",
+    cityStateZip: "McAllen, TX 78504",
+    phone: "(956) 630-1116",
+    fax: "(956) 630-1250",
+    mapQuery: "2522 Buddy Owens Ave, McAllen, TX 78504",
+  },
+  {
+    id: "corpus-christi",
+    name: "Corpus Christi",
+    address: "3765 South Alameda Street, Suite 251",
+    cityStateZip: "Corpus Christi, TX 78401",
+    phone: "(361) 937-7887",
+    fax: "(361) 937-9421",
+    mapQuery: "3765 South Alameda St, Corpus Christi, TX 78401",
+  },
+  {
+    id: "austin",
+    name: "Austin",
+    address: "706 W. Ben White Blvd, Suite 233A",
+    cityStateZip: "Austin, TX 78704",
+    phone: "(512) 707-1070",
+    fax: "(512) 707-1722",
+    mapQuery: "706 W Ben White Blvd, Austin, TX 78704",
+  },
 ];
 
 export function ServiceAreaMap() {
+  const [selectedId, setSelectedId] = useState<string>("austin");
+  const selected = locations.find((loc) => loc.id === selectedId) ?? locations[0];
+
   return (
-    <section id="areas" className="py-24 relative overflow-hidden">
+    <section id="areas" className="py-16 sm:py-24 relative overflow-hidden">
       {/* Background */}
       <div className="orb orb-accent w-[400px] h-[400px] bottom-0 left-0 opacity-20" />
 
-      <div className="container px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-          {/* Map Visualization */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative"
-          >
-            <div className="glass-card rounded-3xl p-8 relative overflow-hidden">
-              {/* Stylized Texas Map */}
-              <div className="aspect-square relative">
-                <svg viewBox="0 0 300 300" className="w-full h-full">
-                  {/* Texas Outline (simplified) */}
-                  <motion.path
-                    initial={{ pathLength: 0 }}
-                    whileInView={{ pathLength: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 2, ease: "easeInOut" }}
-                    d="M50,50 L250,50 L280,100 L260,150 L280,200 L200,280 L150,250 L100,280 L50,200 L30,150 Z"
-                    fill="none"
-                    stroke="hsl(var(--primary))"
-                    strokeWidth="2"
-                    className="opacity-30"
-                  />
-                  
-                  {/* Service Area Highlight */}
-                  <motion.circle
-                    initial={{ scale: 0, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.5, duration: 0.6 }}
-                    cx="150"
-                    cy="180"
-                    r="60"
-                    fill="url(#serviceGradient)"
-                    className="opacity-30"
-                  />
-                  
-                  {/* Pulsing Center Points */}
-                  {[
-                    { cx: 130, cy: 200, label: "San Antonio" },
-                    { cx: 160, cy: 140, label: "Austin" },
-                    { cx: 145, cy: 170, label: "San Marcos" },
-                  ].map((city, i) => (
-                    <g key={i}>
-                      <motion.circle
-                        initial={{ scale: 0 }}
-                        whileInView={{ scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.8 + i * 0.2 }}
-                        cx={city.cx}
-                        cy={city.cy}
-                        r="8"
-                        fill="hsl(var(--primary))"
-                      />
-                      <motion.circle
-                        animate={{ scale: [1, 1.5, 1], opacity: [0.8, 0, 0.8] }}
-                        transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
-                        cx={city.cx}
-                        cy={city.cy}
-                        r="12"
-                        fill="none"
-                        stroke="hsl(var(--primary))"
-                        strokeWidth="2"
-                      />
-                    </g>
-                  ))}
-                  
-                  <defs>
-                    <radialGradient id="serviceGradient" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.6" />
-                      <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
-                    </radialGradient>
-                  </defs>
-                </svg>
+      <div className="container px-4 relative z-10 w-full max-w-[100vw]">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-6xl mx-auto"
+        >
+          <span className="inline-flex items-center gap-2 glass-card rounded-full px-4 py-2 text-sm font-medium text-primary mb-4">
+            <MapPin className="w-4 h-4" />
+            Service Areas
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-8">
+            Our <span className="gradient-text">Service Area</span>
+          </h2>
 
-                {/* Labels */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 1.5 }}
-                  className="absolute top-1/2 left-1/4 transform -translate-x-1/2"
+          <div className="grid lg:grid-cols-[1fr,380px] gap-8 lg:gap-10 items-start">
+            {/* Location cards */}
+            <div className="grid grid-cols-2 lg:grid-cols-1 gap-3 sm:gap-4">
+              {locations.map((loc) => (
+                <button
+                  key={loc.id}
+                  type="button"
+                  onClick={() => setSelectedId(loc.id)}
+                  className={`text-left rounded-2xl border-2 p-4 sm:p-5 transition-all duration-200 ${
+                    selectedId === loc.id
+                      ? "border-primary bg-primary/5 shadow-md"
+                      : "border-border bg-card hover:border-primary/50 hover:bg-muted/50"
+                  }`}
                 >
-                  <div className="glass-card rounded-lg px-3 py-1.5 text-sm font-medium whitespace-nowrap">
-                    San Antonio
-                  </div>
-                </motion.div>
-                
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 1.7 }}
-                  className="absolute top-1/3 right-1/4 transform translate-x-1/2"
-                >
-                  <div className="glass-card rounded-lg px-3 py-1.5 text-sm font-medium whitespace-nowrap">
-                    Austin
-                  </div>
-                </motion.div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <span className="inline-flex items-center gap-2 glass-card rounded-full px-4 py-2 text-sm font-medium text-primary mb-4">
-              <MapPin className="w-4 h-4" />
-              Service Areas
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Serving <span className="gradient-text">Central & South Texas</span>
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Our dedicated team provides quality home health care across the greater 
-              San Antonio and Austin metropolitan areas, reaching families in both 
-              urban centers and rural communities.
-            </p>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              {serviceAreas.map((area, index) => (
-                <motion.div
-                  key={area}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 * index }}
-                  className="flex items-center gap-2"
-                >
-                  <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                    <Check className="w-3 h-3 text-primary" />
-                  </div>
-                  <span className="text-sm font-medium text-foreground">{area}</span>
-                </motion.div>
+                  <span className="font-semibold text-foreground block mb-1">{loc.name}</span>
+                  <span className="text-sm text-muted-foreground line-clamp-2">
+                    {loc.address}, {loc.cityStateZip}
+                  </span>
+                </button>
               ))}
             </div>
-          </motion.div>
-        </div>
+
+            {/* Sidebar: Selected location details */}
+            <motion.div
+              key={selectedId}
+              initial={{ opacity: 0, x: 10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.2 }}
+              className="lg:sticky lg:top-24"
+            >
+              <div className="glass-card rounded-2xl p-6 sm:p-8 border-2 border-primary/20">
+                <p className="text-sm font-semibold text-foreground mb-6">{selected.name} Office</p>
+
+                {/* Small preview map */}
+                <div className="rounded-xl overflow-hidden border border-border bg-muted mb-6 aspect-video w-full">
+                  <iframe
+                    title={`Map of ${selected.name}`}
+                    src={`https://www.google.com/maps?q=${encodeURIComponent(selected.mapQuery)}&z=15&output=embed`}
+                    className="w-full h-full min-h-[140px] border-0"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    allowFullScreen
+                  />
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex gap-3">
+                    <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="text-sm font-medium text-foreground">{selected.address}</p>
+                      <p className="text-sm text-muted-foreground">{selected.cityStateZip}</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <Phone className="w-5 h-5 text-primary flex-shrink-0" />
+                    <div>
+                      <p className="text-xs text-muted-foreground">Phone</p>
+                      <a
+                        href={`tel:${selected.phone.replace(/\D/g, "")}`}
+                        className="text-sm font-medium text-primary hover:underline"
+                      >
+                        {selected.phone}
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <Printer className="w-5 h-5 text-primary flex-shrink-0" />
+                    <div>
+                      <p className="text-xs text-muted-foreground">Fax</p>
+                      <p className="text-sm font-medium text-foreground">{selected.fax}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

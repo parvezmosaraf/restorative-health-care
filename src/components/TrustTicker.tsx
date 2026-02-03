@@ -18,15 +18,15 @@ const tickerItems = [
 
 export function TrustTicker() {
   return (
-    <section className="py-6 bg-primary overflow-hidden">
+    <section className="py-4 sm:py-6 bg-primary overflow-hidden">
       <div className="flex animate-ticker whitespace-nowrap">
         {tickerItems.map((item, index) => (
           <div
             key={index}
-            className="flex items-center gap-3 mx-8 text-primary-foreground"
+            className="flex items-center gap-2 sm:gap-3 mx-4 sm:mx-8 text-primary-foreground"
           >
-            <item.icon className="w-5 h-5 flex-shrink-0" />
-            <span className="font-medium text-sm md:text-base">{item.text}</span>
+            <item.icon className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+            <span className="font-medium text-xs sm:text-sm md:text-base">{item.text}</span>
             <span className="mx-4 opacity-30">•</span>
           </div>
         ))}

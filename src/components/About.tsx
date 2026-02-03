@@ -26,9 +26,9 @@ const values = [
 
 export function About() {
   return (
-    <section id="about" className="py-24 relative overflow-hidden bg-secondary/30">
-      <div className="container px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+    <section id="about" className="py-16 sm:py-24 relative overflow-hidden bg-secondary/30">
+      <div className="container px-4 relative z-10 w-full max-w-[100vw]">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center max-w-6xl mx-auto">
           {/* Content */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -39,7 +39,7 @@ export function About() {
             <span className="inline-block glass-card rounded-full px-4 py-2 text-sm font-medium text-primary mb-4">
               About Restorative Care
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6">
               Healing at Home, <span className="gradient-text">With Heart</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
