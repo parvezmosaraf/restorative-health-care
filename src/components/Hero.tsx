@@ -11,7 +11,7 @@ const stats = [
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20 pb-12 sm:pt-24 sm:pb-16">
+    <section className="relative min-h-0 md:min-h-[85vh] lg:min-h-screen flex flex-col justify-center overflow-hidden pt-20 pb-8 sm:pt-24 sm:pb-10 md:pb-12">
       {/* Background Gradient Orbs */}
       <div className="orb orb-primary w-[600px] h-[600px] -top-40 -right-40 opacity-40" />
       <div className="orb orb-accent w-[400px] h-[400px] bottom-20 -left-20 opacity-30" />
@@ -19,7 +19,7 @@ export function Hero() {
 
       <div className="container relative z-10 px-4 w-full max-w-[100vw]">
         <div className="max-w-6xl mx-auto w-full">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
             {/* Left Content */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
@@ -94,60 +94,21 @@ export function Hero() {
               </motion.div>
             </motion.div>
 
-            {/* Right Content - Hero Image + Quality Care Card */}
+            {/* Right Content - Hero Image (full image, no card) */}
             <motion.div
-              initial={{ opacity: 0, x: 40 }}
+              initial={{ opacity: 0, x: 60 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-              className="relative hidden md:block"
+              transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              className="relative w-full h-[50vh] sm:h-[60vh] md:h-[75vh] lg:h-[85vh] flex items-center justify-center"
             >
-              <div className="relative max-w-lg mx-auto w-full min-w-0">
-                {/* Hero image - home health care / compassionate care */}
-                <div className="relative rounded-3xl overflow-hidden aspect-[4/5] shadow-xl ring-1 ring-black/5">
-                  <img
-                    src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=750&fit=crop"
-                    alt="Compassionate home health care"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
-                </div>
-
-                {/* Quality Care card overlay */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8, duration: 0.5 }}
-                  className="absolute -bottom-6 -left-4 right-4 md:right-0 glass-card rounded-2xl p-6 flex flex-col items-center text-center shadow-lg border border-white/20"
-                >
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-teal-400 flex items-center justify-center mb-3">
-                    <svg className="w-8 h-8 text-primary-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground mb-1">Quality Care</h3>
-                  <p className="text-sm text-muted-foreground">Medicare & Medicaid Certified</p>
-                </motion.div>
-
-                {/* Floating Badge - ACHC Accredited */}
-                <motion.div
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                  className="absolute top-4 right-4 glass-card rounded-xl px-3 py-2 flex items-center gap-2 border border-accent/30 bg-accent/10"
-                >
-                  <Shield className="w-4 h-4 text-accent" />
-                  <span className="font-semibold text-foreground text-sm">ACHC Accredited</span>
-                </motion.div>
-
-                {/* Floating Badge - Bilingual Staff */}
-                <motion.div
-                  animate={{ y: [0, 6, 0] }}
-                  transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                  className="absolute bottom-24 left-0 glass-card rounded-xl px-3 py-2 flex items-center gap-2 border border-primary/30 bg-primary/10"
-                >
-                  <Users className="w-4 h-4 text-primary" />
-                  <span className="font-semibold text-foreground text-sm">Bilingual Staff</span>
-                </motion.div>
-              </div>
+              <motion.img
+                src="/big-family-near-hospital.png"
+                alt="Compassionate home health care"
+                className="max-w-full w-full h-full object-contain object-center"
+                initial={{ opacity: 0, scale: 0.92 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              />
             </motion.div>
           </div>
         </div>
