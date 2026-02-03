@@ -1,73 +1,57 @@
-# Welcome to your Lovable project
+# Restorative Health Care
 
-## Project info
+Website for Restorative Health Care — compassionate home health care services across Central and South Texas.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Tech stack
 
-## How can I edit this code?
+- **Vite** – build tool
+- **React 18** – UI
+- **TypeScript**
+- **Tailwind CSS** – styling
+- **shadcn/ui** – components
+- **React Router** – routing
+- **Framer Motion** – animations
 
-There are several ways of editing your application.
+## Getting started
 
-**Use Lovable**
+### Prerequisites
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- Node.js 18+ and npm (or [nvm](https://github.com/nvm-sh/nvm))
 
-Changes made via Lovable will be committed automatically to this repo.
+### Install and run
 
-**Use your preferred IDE**
+```bash
+# Clone the repository
+git clone https://github.com/parvezmosaraf/restorative-health-care.git
+cd restorative-health-care
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+# Install dependencies
+npm install
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server (with hot reload)
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Open [http://localhost:8080](http://localhost:8080) in your browser.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Other scripts
 
-**Use GitHub Codespaces**
+- `npm run build` – production build
+- `npm run preview` – preview production build locally
+- `npm run lint` – run ESLint
+- `npm run test` – run tests
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Project structure
 
-## What technologies are used for this project?
+- `src/pages/` – page components (Index, Careers, service pages)
+- `src/components/` – reusable components (Navigation, Footer, Hero, ServiceHub, etc.)
+- `src/components/ui/` – shadcn UI components
+- `public/` – static assets (logo, favicon)
 
-This project is built with:
+## Deploying
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Build the app with `npm run build`. The output is in the `dist/` folder. Deploy `dist/` to any static host (Vercel, Netlify, GitHub Pages, etc.).
 
-## How can I deploy this project?
+## License
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Private – Restorative Health Care.
