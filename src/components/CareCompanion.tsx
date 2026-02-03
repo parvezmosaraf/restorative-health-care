@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Send, Sparkles, Heart, ArrowRight } from "lucide-react";
+import { X, Send, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { sendChatMessage, isGeminiConfigured } from "@/lib/geminiChat";
 
 const quickActions = [
   { label: "Find a service", icon: "🔍" },
@@ -15,6 +16,9 @@ const greetings = [
   "How can I help you find the right care today?",
 ];
 
+const API_NOT_CONFIGURED_MSG =
+  "AI is not configured yet. Add your Gemini API key to a .env file as VITE_GEMINI_API_KEY (see .env.example), then restart the dev server.";
+
 export function CareCompanion() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<{ text: string; isBot: boolean }[]>([
@@ -24,42 +28,38 @@ export function CareCompanion() {
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
 
-  const handleSend = () => {
-    if (!input.trim()) return;
+  const replyWithGemini = async (userText: string) => {
+    if (!isGeminiConfigured()) {
+      setMessages((prev) => [...prev, { text: API_NOT_CONFIGURED_MSG, isBot: true }]);
+      return;
+    }
+    try {
+      const reply = await sendChatMessage(userText);
+      setMessages((prev) => [...prev, { text: reply, isBot: true }]);
+    } catch (err) {
+      const message = err instanceof Error ? err.message : "Something went wrong. Please try again.";
+      const isRateLimit = message.includes("Rate limit") || message.includes("429") || message.includes("Quota exceeded");
+      const text = isRateLimit ? message : "Sorry, I couldn't get a response: " + message;
+      setMessages((prev) => [...prev, { text, isBot: true }]);
+    } finally {
+      setIsTyping(false);
+    }
+  };
 
-    setMessages((prev) => [...prev, { text: input, isBot: false }]);
+  const handleSend = () => {
+    const text = input.trim();
+    if (!text) return;
+
+    setMessages((prev) => [...prev, { text, isBot: false }]);
     setInput("");
     setIsTyping(true);
-
-    // Simulate AI response
-    setTimeout(() => {
-      setIsTyping(false);
-      setMessages((prev) => [
-        ...prev,
-        {
-          text: "Thanks for reaching out! Our care specialists are available 24/7. For immediate assistance, call (210) 737-8090 or use the contact form above. Is there anything specific I can help you find?",
-          isBot: true,
-        },
-      ]);
-    }, 1500);
+    replyWithGemini(text);
   };
 
   const handleQuickAction = (action: string) => {
     setMessages((prev) => [...prev, { text: action, isBot: false }]);
     setIsTyping(true);
-
-    setTimeout(() => {
-      setIsTyping(false);
-      let response = "";
-      if (action.includes("service")) {
-        response = "We offer Skilled Nursing, Physical Therapy, Occupational Therapy, Pediatric Care, Geriatric Care, and Disease Management. Which service interests you?";
-      } else if (action.includes("Refer")) {
-        response = "To refer a patient, you can use our intake form above, or call our referral line at (210) 737-8090. Our team will guide you through the process!";
-      } else {
-        response = "You can reach us 24/7 at (210) 737-8090, or email support@restorativehealth.com. We typically respond within 1 hour during business hours!";
-      }
-      setMessages((prev) => [...prev, { text: response, isBot: true }]);
-    }, 1000);
+    replyWithGemini(action);
   };
 
   return (
@@ -80,9 +80,7 @@ export function CareCompanion() {
         
         {/* Avatar */}
         <div className="relative animate-breathe">
-          <div className="w-12 h-12 rounded-full bg-primary-foreground/20 flex items-center justify-center">
-            <Heart className="w-6 h-6 text-primary-foreground" />
-          </div>
+          <img src="/favicon.png" alt="Care Companion" className="w-12 h-12 rounded-full object-contain bg-primary-foreground/10 p-1" />
         </div>
 
         {/* Tooltip */}
@@ -108,9 +106,7 @@ export function CareCompanion() {
             {/* Header */}
             <div className="bg-gradient-to-r from-primary to-teal-400 p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary-foreground/20 flex items-center justify-center animate-breathe">
-                  <Heart className="w-5 h-5 text-primary-foreground" />
-                </div>
+                <img src="/favicon.png" alt="Care Companion" className="w-10 h-10 rounded-full object-contain bg-primary-foreground/10 p-0.5 animate-breathe" />
                 <div>
                   <h3 className="font-semibold text-primary-foreground">Care Companion</h3>
                   <div className="flex items-center gap-1 text-primary-foreground/80 text-xs">

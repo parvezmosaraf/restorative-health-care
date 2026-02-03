@@ -89,6 +89,9 @@ export function IntakeForm() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             Let's Find the <span className="gradient-text">Right Care</span> for You
           </h2>
+          <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-4">
+            We are available 24 hours a day, 7 days a week. A physician referral is required to initiate home health, but you have the freedom to choose the home health provider that best suits your needs — we hope that you will request Restorative Health Care by name.
+          </p>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
             Answer a few quick questions and we'll connect you with a care specialist.
           </p>

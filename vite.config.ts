@@ -10,6 +10,19 @@ export default defineConfig({
     hmr: {
       overlay: false,
     },
+    proxy: {
+      "/api/nws": {
+        target: "https://api.weather.gov",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/nws/, ""),
+        configure: (proxy) => {
+          proxy.on("proxyReq", (proxyReq) => {
+            proxyReq.setHeader("User-Agent", "RestorativeHealthCare/1.0 (https://restorativehealth.com)");
+            proxyReq.setHeader("Accept", "application/geo+json, application/json");
+          });
+        },
+      },
+    },
   },
   plugins: [react()],
   resolve: {

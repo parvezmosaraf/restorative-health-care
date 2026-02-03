@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, Clock, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -67,8 +68,8 @@ export function Hero() {
                   Schedule a Consultation
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </Button>
-                <Button variant="outline" size="lg" className="sm:size-xl text-sm sm:text-base">
-                  Refer a Patient
+                <Button variant="outline" size="lg" className="sm:size-xl text-sm sm:text-base" asChild>
+                  <Link to="/#contact">Refer a Patient</Link>
                 </Button>
               </motion.div>
 
@@ -104,8 +105,8 @@ export function Hero() {
                 {/* Hero image - home health care / compassionate care */}
                 <div className="relative rounded-3xl overflow-hidden aspect-[4/5] shadow-xl ring-1 ring-black/5">
                   <img
-                    src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=750&fit=crop"
-                    alt="Compassionate home health care - nurse with patient"
+                    src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=750&fit=crop"
+                    alt="Compassionate home health care"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
