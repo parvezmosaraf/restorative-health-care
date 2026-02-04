@@ -14,6 +14,7 @@ import Careers from "./pages/Careers";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import EmergencyAlerts from "./pages/EmergencyAlerts";
 import Locations from "./pages/Locations";
+import PatientServices from "./pages/PatientServices";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ const App = () => (
             <Route path="/services/adult-geriatric" element={<AdultGeriatricServices />} />
             <Route path="/services/pediatric" element={<PediatricServices />} />
             <Route path="/services/disease-management" element={<DiseaseManagementProgram />} />
+            <Route path="/patient-services" element={<PatientServices />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/emergency-alerts" element={<EmergencyAlerts />} />

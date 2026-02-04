@@ -73,6 +73,15 @@ export function ServiceHub() {
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-0">
             From adult and geriatric care to pediatric services and disease management—delivered with compassion in the comfort of home.
           </p>
+          <Link
+            to="/patient-services"
+            className="inline-flex items-center gap-2 mt-4 text-primary font-medium hover:underline focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded"
+          >
+            View all service options
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
         </motion.div>
 
         <motion.div

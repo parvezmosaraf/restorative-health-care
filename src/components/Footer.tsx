@@ -4,7 +4,7 @@ import { Phone, Mail, MapPin, Printer, FileText, Facebook, AlertTriangle } from 
 const footerNavLinks = [
   { name: "Home", to: "/" },
   { name: "About Us", to: "/#about" },
-  { name: "Patient Services", to: "/#services" },
+  { name: "Patient Services", to: "/patient-services" },
   { name: "Careers", to: "/careers" },
   { name: "Contact Us", to: "/#contact" },
 ];

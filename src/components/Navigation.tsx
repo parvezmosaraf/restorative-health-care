@@ -8,7 +8,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 const navLinks = [
   { name: "Home", to: "/" },
   { name: "About Us", to: "/#about" },
-  { name: "Patient Services", to: "/#services" },
+  { name: "Patient Services", to: "/patient-services" },
   { name: "Careers", to: "/careers" },
   { name: "Contact Us", to: "/#contact" },
 ];
@@ -16,6 +16,7 @@ const navLinks = [
 function isLinkActive(pathname: string, hash: string, to: string): boolean {
   if (to === "/") return pathname === "/" && !hash;
   if (to === "/careers") return pathname === "/careers";
+  if (to === "/patient-services") return pathname === "/patient-services";
   if (to.startsWith("/#")) {
     const linkHash = to.slice(1);
     return pathname === "/" && hash === linkHash;
