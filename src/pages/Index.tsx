@@ -7,6 +7,7 @@ import { ServiceHub } from "@/components/ServiceHub";
 import { About } from "@/components/About";
 import { ServiceAreaMap } from "@/components/ServiceAreaMap";
 import { IntakeForm } from "@/components/IntakeForm";
+import { HomeHealthServicesSection } from "@/components/HomeHealthServicesSection";
 import { Footer } from "@/components/Footer";
 import { CareCompanion } from "@/components/CareCompanion";
 
@@ -30,8 +31,9 @@ const Index = () => {
       <TrustTicker />
       <ServiceHub />
       <About />
-      <ServiceAreaMap />
       <IntakeForm />
+      <HomeHealthServicesSection />
+      <ServiceAreaMap />
       <Footer />
       <CareCompanion />
     </div>
